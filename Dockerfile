@@ -9,4 +9,6 @@ RUN apt-get update && \
     cd /opt/hystrix-dashboard/hystrix-dashboard/ && \
     ../gradlew war
 
-CMD [ "java", "-jar", "/opt/jetty/jetty-runner.jar", "/opt/hystrix-dashboard/hystrix-dashboard/build/libs/hystrix-dashboard-1.5.0-SNAPSHOT.war" ]
+WORKDIR /opt/hystrix-dashboard/hystrix-dashboard
+
+CMD [ "java", "-jar", "/opt/jetty/jetty-runner.jar", "build/libs/hystrix-dashboard-1.5.0-SNAPSHOT.war" ]
